@@ -1,0 +1,10 @@
+schema: https://hychurch-dev.duckdns.org:3000/graphql
+documents: "./graphql/**/*.graphql"
+generates:
+  ./graphql/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      fetcher: graphql-request
