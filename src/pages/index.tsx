@@ -1,10 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
+import { useLoginMutation } from "../../graphql/generated";
+import { graphqlRequestClient } from "../../clients/reqestClient";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+	const { mutate, data, error } = useLoginMutation(graphqlRequestClient, {
+		onError(error) {
+			console.log(error);
+		},
+	});
+	console.log(data);
+
+	const clickHandler = () => {
+		mutate({
+			input: {
+				phone: "01068203867",
+				password: "1234",
+			},
+		});
+	};
+
 	return (
 		<>
 			<Head>
@@ -15,6 +34,8 @@ export default function Home() {
 			</Head>
 			<main>
 				<div className="text-red-100">123</div>
+
+				<button onClick={clickHandler}>테스트</button>
 			</main>
 		</>
 	);
