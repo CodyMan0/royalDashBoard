@@ -1,3 +1,3 @@
-export const INTOUCH_DASHBOARD_ACCESS_TOKEN = "intouch_dashboard_access_token";
-export const INTOUCH_DASHBOARD_USERNAME = "intouch_dashboard_username";
-export const INTOUCH_DASHBOARD_USER = "intouch_dashboard_user";
+export const INTOUCH_CELL_ACCESS_TOKEN = "intouch_cell_access_token";
+export const INTOUCH_CELL_LEADER_NAME = "intouch_cell_leader_name";
+export const INTOUCH_CELL_LEADER = "intouch_cell_leader";
