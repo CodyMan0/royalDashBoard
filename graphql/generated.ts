@@ -156,7 +156,6 @@ export type LoginPayload = {
   __typename?: 'LoginPayload';
   /** 토큰 */
   accessToken: Scalars['String'];
-  user: User;
 };
 
 export type Mutation = {
@@ -174,6 +173,7 @@ export type Mutation = {
   submitCellMemberChurchServiceAttendanceHistories: SubmitCellMemberChurchServiceAttendanceHistoriesPayload;
   /** 사용자 정보를 업데이트 합니다. */
   updateUser: UpdateUserPayload;
+  updateUserCellTransfer: UpdateUserCellTransferPayload;
 };
 
 
@@ -221,6 +221,11 @@ export type MutationUpdateUserArgs = {
   input: UpdateUserInput;
 };
 
+
+export type MutationUpdateUserCellTransferArgs = {
+  input: UpdateUserCellTransferInput;
+};
+
 export type Query = {
   __typename?: 'Query';
   /** 셀 단건 조회 */
@@ -230,6 +235,8 @@ export type Query = {
   findChurchServices: Array<ChurchService>;
   /** 전체 사용자 조회 */
   findUsers: FindUsersPayload;
+  /** 로그인한 사용자의 정보를 조회합니다. */
+  me: User;
   /** 셀원 조회. 셀장만 셀원 조회가 가능합니다. */
   myCellMembers?: Maybe<Array<User>>;
 };
@@ -329,6 +336,17 @@ export type SubmitCellMemberChurchServiceAttendanceHistoriesPayload = {
   processedAttendanceHistoryCount: Scalars['Int'];
   /** 출석이력 제출요청 건수 */
   requestedAttendanceHistoryCount: Scalars['Int'];
+};
+
+export type UpdateUserCellTransferInput = {
+  id: Scalars['ID'];
+  /** ORDERED 상태로의 업데이트는 지원하지 않습니다. 오직 CANCELED 또는 CONFIRMED 상태로의 업데이트만 가능합니다. */
+  status: UserCellTransferStatus;
+};
+
+export type UpdateUserCellTransferPayload = {
+  __typename?: 'UpdateUserCellTransferPayload';
+  userCellTransfer: UserCellTransfer;
 };
 
 export type UpdateUserInput = {
@@ -445,19 +463,13 @@ export type LoginMutationVariables = Exact<{
 }>;
 
 
-export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginPayload', accessToken: string, user: { __typename?: 'User', id: string, name: string, phone: string, roles: Array<RoleType> } } };
+export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginPayload', accessToken: string } };
 
 
 export const LoginDocument = `
     mutation login($input: LoginInput!) {
   login(input: $input) {
     accessToken
-    user {
-      id
-      name
-      phone
-      roles
-    }
   }
 }
     `;
