@@ -26,6 +26,7 @@ const Apploading = ({ children }: ApploadingProps) => {
 					isLoggedIn: true,
 					accessToken: userInfo.accessToken,
 				});
+				router.push("/home");
 				setIsLoadingCompleted(true);
 			} else {
 				router.push("/");
