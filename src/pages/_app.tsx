@@ -14,7 +14,7 @@ const queryClient = new QueryClient({
 });
 
 const defaultSEO = {
-	defaultTitle: "Royal-Garden",
+	defaultTitle: "Royal-Guard",
 	description: "this is made for intouch-church",
 };
 
