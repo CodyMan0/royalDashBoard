@@ -2,10 +2,39 @@
 
 Royal DashBoard is a DashBoard for provide convenience for cell leader to document some information about cell peoples.
 
-## Duration
+## 기간
 
 23.01.08 ~
 
-## Motivation
+## 문제 해결 과정
 
-## How I Work
+#### 1.
+
+-   **정의** : 
+-   **해결** :
+-   **공부한 부분** :
+-   **경험** :
+
+#### 2. 
+
+
+-   **정의** : 
+-   **해결** :
+-   **공부한 부분** :
+-   **경험** :
+
+
+#### 3. 
+
+-   **정의** : 
+-   **해결** : 
+-   **공부한 부분** :
+-   **경험** :
+
+
+## 페이지 구성
+
+
+
+
+
